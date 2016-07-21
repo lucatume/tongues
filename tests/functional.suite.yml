@@ -10,7 +10,7 @@ modules:
         - \Helper\Functional
         - Filesystem
         - WPDb:
-            dsn: 'mysql:host=127.0.0.1;dbname=lang-functional'
+            dsn: 'mysql:host=127.0.0.1;dbname=lang'
             user: root
             password: root
             dump: tests/_data/dump.sql
