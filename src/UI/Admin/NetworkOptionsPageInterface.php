@@ -3,6 +3,7 @@
 namespace Tongues\UI\Admin;
 
 
-interface NetworkOptionsPageInterface {
+interface NetworkOptionsPageInterface
+{
 
 }

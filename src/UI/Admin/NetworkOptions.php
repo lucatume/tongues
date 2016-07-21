@@ -3,11 +3,22 @@
 namespace Tongues\UI\Admin;
 
 
-class NetworkOptions extends AbstractOptionsPage implements OptionsPageInterface, NetworkOptionsPageInterface {
+use Tongues\API\Endpoints\RoutesInformationInterface;
 
-	protected $nonceAction = 'tongues-network-options';
+class NetworkOptions extends AbstractOptionsPage implements OptionsPageInterface, NetworkOptionsPageInterface
+{
+    /**
+     * @var RoutesInformationInterface
+     */
+    private $routesInformation;
 
-	public function render() {
-		wp_nonce_field( $this->getNonceAction(), $this->getNonceField() );
-	}
+    public function __construct(RoutesInformationInterface $routesInformation)
+    {
+        $this->routesInformation = $routesInformation;
+    }
+
+    public function render()
+    {
+        wp_nonce_field($this->getNonceAction(), $this->getNonceField());
+    }
 }

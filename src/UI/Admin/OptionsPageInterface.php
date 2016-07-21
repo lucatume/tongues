@@ -3,7 +3,8 @@
 namespace Tongues\UI\Admin;
 
 
-interface OptionsPageInterface {
+interface OptionsPageInterface
+{
 
 	public function render();
 
