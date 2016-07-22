@@ -94,7 +94,6 @@ class NetworkSettings implements NetworkSettingsHandlerInterface
             foreach ($langIdEntries as $langIdEntry) {
                 $updated = $wpdb->update($wpdb->blogs, ['lang_id' => $langIdEntry['lang_id']], ['blog_id' => $langIdEntry['blog_id']], ['%d'], ['%d']);
 
-                error_log(print_r($wpdb->get_results("select * from $wpdb->blogs"), true));
                 if (false === $updated) {
                     throw new \RuntimeException('There was a problem updating lang_id value to [' . $langIdEntry['lang_id'] . '] for blog_id [' . $langIdEntry['blog_id'] . ']');
                 }
