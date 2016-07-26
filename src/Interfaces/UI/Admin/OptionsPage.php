@@ -1,9 +1,9 @@
 <?php
 
-namespace Tongues\UI\Admin;
+namespace Tongues\Interfaces\UI\Admin;
 
 
-interface OptionsPageInterface
+interface OptionsPage
 {
 
 	public function render();

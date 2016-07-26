@@ -1,9 +1,9 @@
 <?php
 
-namespace Tongues\API\Endpoints;
+namespace Tongues\Interfaces\API\Endpoints;
 
 
-interface EndpointInterface
+interface Endpoint
 {
 
     /**

@@ -3,7 +3,9 @@
 namespace Tongues\API\Endpoints;
 
 
-abstract class AbstractApiV1Endpoint implements EndpointInterface
+use Tongues\Interfaces\API\Endpoints\Endpoint;
+
+abstract class AbstractApiV1Endpoint implements Endpoint
 {
 
     /**

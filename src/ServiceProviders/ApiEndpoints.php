@@ -2,8 +2,8 @@
 
 namespace Tongues\ServiceProviders;
 
-use Tongues\API\Endpoints\EndpointInterface;
-use Tongues\API\Endpoints\RoutesInformationInterface;
+use Tongues\Interfaces\API\Endpoints\Endpoint;
+use Tongues\Interfaces\API\Endpoints\RoutesInformation;
 
 class ApiEndpoints extends \tad_DI52_ServiceProvider
 {
@@ -13,19 +13,19 @@ class ApiEndpoints extends \tad_DI52_ServiceProvider
      */
     public function register()
     {
-        $this->container->bind('Tongues\\API\\Endpoints\\RoutesInformationInterface', 'Tongues\\API\\Endpoints\\RoutesInformation');
+        $this->container->bind('Tongues\\Interfaces\\API\\Endpoints\\RoutesInformation', 'Tongues\\API\\Endpoints\\RoutesInformation');
 
-        $this->container->bind('Tongues\\API\\Handlers\\NetworkSettingsHandlerInterface', 'Tongues\\API\\Handlers\\NetworkSettings');
-        $this->container->bind('Tongues\\API\\Endpoints\\NetworkSettingsEndpointInterface', 'Tongues\\API\\Endpoints\\NetworkSettings');
+        $this->container->bind('Tongues\\Interfaces\\API\\Handlers\\NetworkSettingsHandler', 'Tongues\\API\\Handlers\\NetworkSettings');
+        $this->container->bind('Tongues\\Interfaces\\API\\Endpoints\\NetworkSettingsEndpoint', 'Tongues\\API\\Endpoints\\NetworkSettings');
 
         $this->container->tag([
-            'Tongues\\API\\Endpoints\\NetworkSettingsEndpointInterface'
+            'Tongues\\Interfaces\\API\\Endpoints\\NetworkSettingsEndpoint'
         ], 'endpoints');
 
-        /** @var RoutesInformationInterface $routesInformation */
-        $routesInformation = $this->container->make('Tongues\\API\\Endpoints\\RoutesInformationInterface');
+        /** @var \Tongues\Interfaces\API\Endpoints\RoutesInformation $routesInformation */
+        $routesInformation = $this->container->make('Tongues\\Interfaces\\API\\Endpoints\\RoutesInformation');
 
-        /** @var EndpointInterface $endpoint */
+        /** @var Endpoint $endpoint */
         foreach ($this->container->tagged('endpoints') as $endpoint) {
             add_action('rest_api_init', function () use ($endpoint) {
                 register_rest_route($endpoint->getNamespace(), $endpoint->getRoute(), $endpoint->getArgs());

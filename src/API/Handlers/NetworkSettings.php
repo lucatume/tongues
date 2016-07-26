@@ -3,7 +3,9 @@
 namespace Tongues\API\Handlers;
 
 
-class NetworkSettings implements NetworkSettingsHandlerInterface
+use Tongues\Interfaces\API\Handlers\NetworkSettingsHandler;
+
+class NetworkSettings implements NetworkSettingsHandler
 {
 
     /**

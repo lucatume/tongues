@@ -3,16 +3,18 @@
 namespace Tongues\UI\Admin;
 
 
-use Tongues\API\Endpoints\RoutesInformationInterface;
+use Tongues\Interfaces\API\Endpoints\RoutesInformation;
+use Tongues\Interfaces\UI\Admin\NetworkOptionsPage;
+use Tongues\Interfaces\UI\Admin\OptionsPage;
 
-class NetworkOptions extends AbstractOptionsPage implements OptionsPageInterface, NetworkOptionsPageInterface
+class NetworkOptions extends AbstractOptionsPage implements OptionsPage, NetworkOptionsPage
 {
     /**
-     * @var RoutesInformationInterface
+     * @var RoutesInformation
      */
     private $routesInformation;
 
-    public function __construct(RoutesInformationInterface $routesInformation)
+    public function __construct(RoutesInformation $routesInformation)
     {
         $this->routesInformation = $routesInformation;
     }

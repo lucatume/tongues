@@ -2,17 +2,18 @@
 
 namespace Tongues\API\Endpoints;
 
-use Tongues\API\Handlers\NetworkSettingsHandlerInterface;
+use Tongues\Interfaces\API\Endpoints\NetworkSettingsEndpoint;
+use Tongues\Interfaces\API\Handlers\NetworkSettingsHandler;
 
-class NetworkSettings extends AbstractApiV1Endpoint implements NetworkSettingsEndpointInterface
+class NetworkSettings extends AbstractApiV1Endpoint implements NetworkSettingsEndpoint
 {
 
     /**
-     * @var NetworkSettingsHandlerInterface
+     * @var NetworkSettingsHandler
      */
     private $handler;
 
-    public function __construct(NetworkSettingsHandlerInterface $handler)
+    public function __construct(NetworkSettingsHandler $handler)
     {
         $this->handler = $handler;
     }

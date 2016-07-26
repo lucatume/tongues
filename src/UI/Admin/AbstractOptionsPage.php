@@ -3,7 +3,9 @@
 namespace Tongues\UI\Admin;
 
 
-abstract class AbstractOptionsPage implements OptionsPageInterface
+use Tongues\Interfaces\UI\Admin\OptionsPage;
+
+abstract class AbstractOptionsPage implements OptionsPage
 {
 
 	protected $nonceAction = 'wp_rest';

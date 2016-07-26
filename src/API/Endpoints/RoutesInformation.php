@@ -2,8 +2,7 @@
 
 namespace Tongues\API\Endpoints;
 
-
-class RoutesInformation implements RoutesInformationInterface
+class RoutesInformation implements \Tongues\Interfaces\API\Endpoints\RoutesInformation
 {
 
     protected $endpointsInformation = [];
