@@ -3,7 +3,6 @@
 namespace Tongues\ServiceProviders;
 
 use Tongues\Interfaces\API\Endpoints\Endpoint;
-use Tongues\Interfaces\API\Endpoints\RoutesInformation;
 
 class ApiEndpoints extends \tad_DI52_ServiceProvider
 {
@@ -13,10 +12,10 @@ class ApiEndpoints extends \tad_DI52_ServiceProvider
      */
     public function register()
     {
-        $this->container->bind('Tongues\\Interfaces\\API\\Endpoints\\RoutesInformation', 'Tongues\\API\\Endpoints\\RoutesInformation');
+        $this->container->singleton('Tongues\\Interfaces\\API\\Endpoints\\RoutesInformation', 'Tongues\\API\\Endpoints\\RoutesInformation');
 
-        $this->container->bind('Tongues\\Interfaces\\API\\Handlers\\NetworkSettingsHandler', 'Tongues\\API\\Handlers\\NetworkSettings');
-        $this->container->bind('Tongues\\Interfaces\\API\\Endpoints\\NetworkSettingsEndpoint', 'Tongues\\API\\Endpoints\\NetworkSettings');
+        $this->container->singleton('Tongues\\Interfaces\\API\\Handlers\\NetworkSettingsHandler', 'Tongues\\API\\Handlers\\NetworkSettings');
+        $this->container->singleton('Tongues\\Interfaces\\API\\Endpoints\\NetworkSettingsEndpoint', 'Tongues\\API\\Endpoints\\NetworkSettings');
 
         $this->container->tag([
             'Tongues\\Interfaces\\API\\Endpoints\\NetworkSettingsEndpoint'

@@ -10,4 +10,7 @@
  */
 
 include 'vendor/autoload.php';
-include 'src/bootstrap.php';
+
+add_action('plugins_loaded', function () {
+    include 'src/bootstrap.php';
+});

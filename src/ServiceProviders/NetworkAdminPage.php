@@ -11,7 +11,7 @@ class NetworkAdminPage extends \tad_DI52_ServiceProvider
 	 */
 	public function register()
 	{
-		$this->container->bind('Tongues\\UI\\Admin\\NetworkOptionsInterface', 'Tongues\\UI\\Admin\\NetworkOptions');
+        $this->container->singleton('Tongues\\UI\\Admin\\NetworkOptionsInterface', 'Tongues\\UI\\Admin\\NetworkOptions');
 
 		$container = $this->container;
 
@@ -26,6 +26,5 @@ class NetworkAdminPage extends \tad_DI52_ServiceProvider
 	 */
 	public function boot()
 	{
-		// TODO: Implement boot() method.
 	}
 }
